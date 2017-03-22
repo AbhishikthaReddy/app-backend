@@ -6,6 +6,7 @@ services:
     volumes:
       - .:/srv/app
       - /workspaces:/workspaces
+      - //c/Users/Abhishiktha/.docker/machine/machines/default:/certs
     env_file: env
     depends_on:
       - db
@@ -17,6 +18,7 @@ services:
     volumes:
       - .:/srv/app
       - /workspaces:/workspaces
+      - //c/Users/Abhishiktha/.docker/machine/machines/default:/certs
     env_file: env
     depends_on:
       - db
@@ -44,6 +46,8 @@ services:
     volumes_from:
       - api
   logspout:
+    volumes:
+      - //c/Users/Abhishiktha/.docker/machine/machines/default:/certs
     image: gliderlabs/logspout
     env_file: env
   notifications-server:
